@@ -43,8 +43,8 @@ body {
 
 .shape-container {
     width: 500px;
-    height: 500px;
-    padding: 5px;
+    height: 400px;
+    padding: 20px 0;
 }
 
 input[type=text], .shape-container {
@@ -70,8 +70,23 @@ input[type=text] {
 
 .circle {
     border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #0ff;
 }
 
 .square {
     border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    background-color: #0ff;
+}
+
+.shape-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding-left: 30px;
+    justify-content: start;
+    align-items: end;
+    gap: 10px;
 }

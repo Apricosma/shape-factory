@@ -3,8 +3,22 @@
     Shape Factory
 
 */
-
 'use strict';
+
+// Utility functions 
+function onEvent(event, selector, callback) {
+    return selector.addEventListener(event, callback);
+}
+
+function select(selector, parent = document) {
+    return parent.querySelector(selector);
+}
+
+// Selectors 
+const shapeContainer = select('.shape-container');
+const submit = select('.submit');
+const shapeInput = select('.shape-input');
+const colorInput = select('.color-input');
 
 class Shape {
     constructor(name, color) {
@@ -40,6 +54,9 @@ class Shape {
         return [this._name, this._color];
     }
 }
+// const shape = new Shape('beep', 'boop');
+// console.log(shape.shapeName, shape.shapeColor);
 
-const shape = new Shape('beep', 'boop');
-console.log(shape.shapeName, shape.shapeColor);
+onEvent('click', submit, function() {
+    
+});
