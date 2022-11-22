@@ -67,3 +67,11 @@ input[type=text] {
     background-color: var(--app-orange);
     color: var(--app-text);
 }
+
+.circle {
+    border-radius: 50%;
+}
+
+.square {
+    border-radius: 10px;
+}
