@@ -24,12 +24,17 @@ const submit = select('.submit');
 const shapeInput = select('.shape-input');
 const colorInput = select('.color-input');
 const shapeSelector = select('.shape');
+const output = select('span');
 
 
 class Shape {
     constructor(name, color) {
         this._name = name;
         this._color = color;
+        this.getInfo = function() {
+            console.log(this._name, this._color);
+            return `${this._name} ${this._color}`;
+        }
     }
 
     set shapeName(name) {
@@ -56,10 +61,7 @@ class Shape {
         return this._color;
     }
 
-    getInfo() {
-        console.log(this._name, this._color);
-        return [this._name, this._color];
-    }
+    
 
     createShape() {
 
@@ -80,32 +82,26 @@ class Shape {
     
 }
 
-// onEvent('click', submit, function() {
-//     const shape = new Shape(shapeInput.value, colorInput.value);
-
-//     let arr = [];
-//     arr.push(shape);
-//     console.log(arr);
-
-//     // console.log(shape);
-//     shape.createShape();
-// });
-
-
 let arr = [];
 onEvent('click', submit, function() {
     const shape = new Shape(shapeInput.value, colorInput.value);
     arr.push(shape);
     console.log(arr);
     shape.createShape();
+    output.innerHTML = `${shape.shapeColor} ${shape.shapeName} `
 
-    
+    shapeContainer.addEventListener('click', function (e) {
+        const target = e.target;
+        if (target.matches('div')) {
+            
+            output.innerHTML = `${shape.getInfo()}`;
+        }
+    });
 });
 
-shapeContainer.addEventListener('click', function (e) {
-    const target = e.target;
 
-    if (target.matches('div')) {
-        getInfo();
-    }
-});
+// I'm going to be honest I've been stuck trying to get getInfo() to work for
+// over five hours and I can't seem to get it to return the correct value
+// it's returning the right stuff but it's barfing out tons of event listeners
+// because my shape constructor is inside of an event listener 
+

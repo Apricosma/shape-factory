@@ -90,3 +90,9 @@ input[type=text] {
     align-items: end;
     gap: 10px;
 }
+
+span {
+    text-align: center;
+    color: var(--app-text);
+    font-size: 20px;
+}
