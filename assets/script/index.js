@@ -19,6 +19,7 @@ const shapeContainer = select('.shape-container');
 const submit = select('.submit');
 const shapeInput = select('.shape-input');
 const colorInput = select('.color-input');
+const shapeSelector = select('.shape');
 
 class Shape {
     constructor(name, color) {
@@ -54,18 +55,42 @@ class Shape {
         return [this._name, this._color];
     }
 
-    draw() {
+    createShape() {
+
         const element = document.createElement('div');
         document.querySelector('.shape-container').appendChild(element);
-        element.classList.add('circle');
+
+        // Shape definition
+        if (this._name == 'circle'.trim()) {
+            element.classList.add('circle', 'shape');
+        } else if (this._name == 'square') {
+            element.classList.add('square', 'shape');
+        } else {
+            throw new TypeError('shapeName is invalid');
+        }
+
+        // Color definition
+        document.querySelector('.shape').style.backgroundColor = this._color;
+        console.log(this._color);
+
     }
 }
-// const shape = new Shape('beep', 'boop');
-// console.log(shape.shapeName, shape.shapeColor);
-const shapeName = shapeInput.value;
-const shapeColor = colorInput.value;
 
+// onEvent('click', submit, function() {
+//     const shape = new Shape(shapeInput.value, colorInput.value);
+
+//     let arr = [];
+//     arr.push(shape);
+//     console.log(arr);
+
+//     // console.log(shape);
+//     shape.createShape();
+// });
+
+let arr = [];
 onEvent('click', submit, function() {
-    const shape = new Shape(shapeName, shapeColor);
-    shape.draw();
+    const shape = new Shape(shapeInput.value, colorInput.value);
+    arr.push(shape);
+    console.log(arr);
+    shape.createShape();
 });
