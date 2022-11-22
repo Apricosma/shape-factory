@@ -53,10 +53,19 @@ class Shape {
     getInfo() {
         return [this._name, this._color];
     }
+
+    draw() {
+        const element = document.createElement('div');
+        document.querySelector('.shape-container').appendChild(element);
+        element.classList.add('circle');
+    }
 }
 // const shape = new Shape('beep', 'boop');
 // console.log(shape.shapeName, shape.shapeColor);
+const shapeName = shapeInput.value;
+const shapeColor = colorInput.value;
 
 onEvent('click', submit, function() {
-    
+    const shape = new Shape(shapeName, shapeColor);
+    shape.draw();
 });
