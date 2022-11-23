@@ -35,6 +35,7 @@ class Shape {
             console.log(this._name, this._color);
             return `${this._name} ${this._color}`;
         }
+        
     }
 
     set shapeName(name) {
@@ -83,25 +84,29 @@ class Shape {
 }
 
 let arr = [];
+
 onEvent('click', submit, function() {
-    const shape = new Shape(shapeInput.value, colorInput.value);
+    let shape = new Shape(shapeInput.value, colorInput.value);
     arr.push(shape);
     console.log(arr);
     shape.createShape();
     output.innerHTML = `${shape.shapeColor} ${shape.shapeName} `
 
     shapeContainer.addEventListener('click', function (e) {
-        const target = e.target;
+        let target = e.target;
         if (target.matches('div')) {
             
             output.innerHTML = `${shape.getInfo()}`;
         }
     });
+    
 });
 
 
 // I'm going to be honest I've been stuck trying to get getInfo() to work for
-// over five hours and I can't seem to get it to return the correct value
-// it's returning the right stuff but it's barfing out tons of event listeners
-// because my shape constructor is inside of an event listener 
+// over 10hours and I can't seem to get it to return the correct value
+// it's returning the properties, but it's barfing out tons of event listeners
+// for each shape because my shape constructor is inside of an event listener 
+// and I don't know how else to format it... 
+
 
