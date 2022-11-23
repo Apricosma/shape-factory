@@ -2,12 +2,13 @@
 
 :root {
     --app-dark-bg: #1a1d28;
-    --app-red: #ff3c57;
-    --app-green: #33ab4e;
-    --app-purple: #833cff;
-    --app-orange: #ff833c;
-    --app-blue: #3c57ff;
-    --app-blue-hover: #364ee6;
+    --app-field-bg: #3b3a44;
+    --app-text: #f1f2f4;
+    --app-green: #9f0;
+    --app-pink: #f09;
+    --app-purple: #90f;
+    --app-orange: #f90;
+    --app-blue: #0ff;
 }
     
 body {
@@ -17,4 +18,81 @@ body {
 .container {
     width: min(100% - 30px, 1280px);
     margin-inline: auto;
+}
+
+/* - - - - - - - - - - - - - - - - - - */
+/* Style                               */
+/* - - - - - - - - - - - - - - - - - - */
+
+.grid {
+    display: grid;
+}
+
+.container {
+    align-content: center;
+    justify-content: center;
+}
+
+.factory-container > * {
+    border-radius: 5px;
+}
+
+.factory-container {
+    margin-top: 50px;
+}
+
+.shape-container {
+    width: 500px;
+    height: 400px;
+    padding: 20px 0;
+}
+
+input[type=text], .shape-container {
+    background-color: var(--app-field-bg);
+}
+
+input[type=text] {
+    padding: 5px;
+    margin: 5px 0;
+    color: var(--app-text);
+    width: 38%;
+    height: 35px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.submit {
+    width: 92px;
+    height: 35px;
+    background-color: var(--app-orange);
+    color: var(--app-text);
+}
+
+.circle {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #0ff;
+}
+
+.square {
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    background-color: #0ff;
+}
+
+.shape-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding-left: 30px;
+    justify-content: start;
+    align-items: end;
+    gap: 10px;
+}
+
+span {
+    text-align: center;
+    color: var(--app-text);
+    font-size: 20px;
 }
